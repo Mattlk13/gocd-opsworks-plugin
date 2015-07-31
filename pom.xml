@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>gocd-opsworks-plugin</artifactId>
     <groupId>com.tispr.gocd</groupId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
 
     <distributionManagement>
         <snapshotRepository>
@@ -30,7 +30,7 @@
         <url>https://github.com/tispr/gocd-opsworks-plugin</url>
         <connection>scm:git:https://github.com/tispr/gocd-opsworks-plugin.git</connection>
         <developerConnection>scm:git:https://github.com/tispr/gocd-opsworks-plugin.git</developerConnection>
-      <tag>gocd-opsworks-plugin-0.0.2</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <developers>
