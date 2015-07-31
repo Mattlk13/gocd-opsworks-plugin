@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<go-plugin id="aws-opsworks-plugin" version="1">
+    <about>
+        <name>AWS OpsWorks</name>
+        <version>0.0.1</version>
+        <target-go-version>14.4.0</target-go-version>
+        <description>AWS OpsWorks deployment plugin</description>
+        <vendor>
+            <name>tispr Engineering Team</name>
+            <url>http://engineering.tispr.com</url>
+        </vendor>
+    </about>
+</go-plugin>
