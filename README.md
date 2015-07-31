@@ -6,7 +6,7 @@ From Maven Central:
 <dependency>
   <groupId>com.tispr.gocd</groupId>
   <artifactId>gocd-opsworks-plugin</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 ```
 
