@@ -21,6 +21,7 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.opsworks.AWSOpsWorks;
 import com.amazonaws.services.opsworks.AWSOpsWorksClientBuilder;
 import com.amazonaws.services.opsworks.model.*;
+import com.amazonaws.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,9 +37,11 @@ public class OpsWorksClient {
 
     public OpsWorksClient(String accessKey, String secretKey, String region) {
         AWSCredentials creds = new BasicAWSCredentials(accessKey, secretKey);
+        String actualRegion = StringUtils.isNullOrEmpty(region) ? "us-east-1" : region;
+
         opsWorksClient = AWSOpsWorksClientBuilder.standard()
             .withCredentials(new AWSStaticCredentialsProvider(creds))
-            .withRegion(region)
+            .withRegion(actualRegion)
             .build();
     }
 

@@ -11,7 +11,8 @@ From Maven Central:
 ```
 
 ## Environment variables
-- `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`
+- `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
+- `AWS_DEFAULT_REGION` - if not defined, default is us-east-1.
 
 ## Plugin Configuration
 
