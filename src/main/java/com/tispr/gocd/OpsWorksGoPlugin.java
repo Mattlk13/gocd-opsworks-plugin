@@ -30,6 +30,7 @@ public class OpsWorksGoPlugin extends GoPluginBase {
 
     public static final String AWS_ACCESS_KEY_ID = "AWS_ACCESS_KEY_ID";
     public static final String AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_KEY";
+    public static final String AWS_DEFAULT_REGION = "AWS_DEFAULT_REGION";
 
     @Override
     protected GoPluginApiResponse handleGetConfigRequest() {
@@ -67,7 +68,11 @@ public class OpsWorksGoPlugin extends GoPluginBase {
 
             log(String.format("[opsworks] Deployment of [appId=%s] started.", appId));
 
-            OpsWorksClient opsWorksClient = new OpsWorksClient(envVars.get(AWS_ACCESS_KEY_ID), envVars.get(AWS_SECRET_ACCESS_KEY));
+            OpsWorksClient opsWorksClient = new OpsWorksClient(
+                envVars.get(AWS_ACCESS_KEY_ID),
+                envVars.get(AWS_SECRET_ACCESS_KEY),
+                envVars.get(AWS_DEFAULT_REGION)
+            );
             Deployment d = opsWorksClient.deploy(appId, layerId, comment, revision, noWaitValue);
 
             if (d.getStatus().equals("successful") || noWaitValue) {
