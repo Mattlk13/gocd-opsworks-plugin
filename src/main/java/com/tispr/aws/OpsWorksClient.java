@@ -16,8 +16,10 @@
 package com.tispr.aws;
 
 import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.opsworks.AWSOpsWorksClient;
+import com.amazonaws.services.opsworks.AWSOpsWorks;
+import com.amazonaws.services.opsworks.AWSOpsWorksClientBuilder;
 import com.amazonaws.services.opsworks.model.*;
 
 import java.util.ArrayList;
@@ -30,11 +32,14 @@ public class OpsWorksClient {
     private static final int DEPLOYMENT_TIMEOUT = 900;
     private static final int DEPLOYMENT_CHECK_INTERVAL = 10;
 
-    private AWSOpsWorksClient opsWorksClient;
+    private AWSOpsWorks opsWorksClient;
 
-    public OpsWorksClient(String accessKey, String secretKey) {
+    public OpsWorksClient(String accessKey, String secretKey, String region) {
         AWSCredentials creds = new BasicAWSCredentials(accessKey, secretKey);
-        opsWorksClient = new AWSOpsWorksClient(creds);
+        opsWorksClient = AWSOpsWorksClientBuilder.standard()
+            .withCredentials(new AWSStaticCredentialsProvider(creds))
+            .withRegion(region)
+            .build();
     }
 
     public Deployment deploy(String appId, String layerId, String comment, String revision, boolean noWait)
